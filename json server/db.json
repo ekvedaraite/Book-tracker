@@ -1,0 +1,117 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "img": "https://m.media-amazon.com/images/I/71RVt35ZAbL._AC_UF1000,1000_QL80_.jpg",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J. K. Rowling",
+      "description": "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world. On his eleventh birthday, Harry Potter discovers that he is no ordinary boy.",
+      "genre": [
+        "Novel",
+        "Children's literature",
+        "Fantasy fiction",
+        "High fantasy"
+      ],
+      "pages": 223,
+      "releaseDate": "1997-06-26"
+    },
+    {
+      "id": "2",
+      "img": "https://m.media-amazon.com/images/I/51jdaC-eg7L._AC_UF1000,1000_QL80_.jpg",
+      "title": "Harry Potter and the Chamber of Secrets",
+      "author": "J. K. Rowling",
+      "description": "The plot follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the school's corridors warn that the Chamber of Secrets has been opened and that the heir of Slytherin would kill all pupils who do not come from all-magical families.",
+      "genre": [
+        "Novel",
+        "Fantasy fiction",
+        "Bildungsroman",
+        "High fantasy",
+        "Adventure fiction"
+      ],
+      "pages": 341,
+      "realeaseDate": "1998-07-02"
+    },
+    {
+      "id": 1706027363411,
+      "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "author": "J. K. Rowling",
+      "description": "The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban, the wizard prison, believed to be one of Lord Voldemort's old allies.",
+      "genre": [
+        "Novel",
+        "Romance novel"
+      ],
+      "pages": "470",
+      "releaseDate": "1999-07-08"
+    },
+    {
+      "id": 1706027953181,
+      "img": "https://upload.wikimedia.org/wikipedia/en/b/b6/Harry_Potter_and_the_Goblet_of_Fire_cover.png",
+      "title": "Harry Potter and the Goblet of Fire",
+      "author": "J. K. Rowling",
+      "description": "It follows Harry Potter, a wizard in his fourth year at Hogwarts School of Witchcraft and Wizardry, and the mystery surrounding the entry of Harry's name into the Triwizard Tournament, in which he is forced to compete. The book was published in the United Kingdom by Bloomsbury and in the United States by Scholastic.",
+      "genre": [
+        "Novel",
+        "Children's literature",
+        "Fantasy",
+        "Fiction"
+      ],
+      "pages": "636",
+      "releaseDate": "2000-07-08"
+    },
+    {
+      "id": 1706030876437,
+      "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
+      "title": "Harry Potter",
+      "author": "J. K. Rowling",
+      "description": "The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban, the wizard prison, believed to be one of Lord Voldemort's old allies.",
+      "genre": [
+        "Mystery",
+        "Science fiction",
+        "Fiction"
+      ],
+      "pages": "3963",
+      "releaseDate": "2029-09-01"
+    },
+    {
+      "id": 1706031037698,
+      "img": "",
+      "title": "",
+      "author": "",
+      "description": "",
+      "genre": [],
+      "pages": "",
+      "releaseDate": ""
+    },
+    {
+      "id": 1706031298238,
+      "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
+      "title": "Harry Potter",
+      "author": "J. K. Rowling",
+      "description": "The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban, the wizard prison, believed to be one of Lord Voldemort's old allies.",
+      "genre": [
+        "Mystery"
+      ],
+      "pages": "636",
+      "releaseDate": "2022-02-09"
+    }
+  ],
+  "logs": [
+    {
+      "id": "2",
+      "bookId": "2",
+      "date": "2024-01-23",
+      "page": 235,
+      "comment": "Could be better",
+      "rating": "?"
+    },
+    {
+      "id": "763c",
+      "bookId": "1",
+      "date": "2024-01-23T18:23:25.730Z",
+      "page": 321,
+      "comment": "feasdz",
+      "rating": null
+    }
+  ]
+}

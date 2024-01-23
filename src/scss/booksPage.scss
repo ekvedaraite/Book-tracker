@@ -1,0 +1,18 @@
+.booksPageDiv {
+    width: 80%;
+    margin: auto;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: $light-green;
+      color: $darker-green;
+  
+      h2 {
+        text-transform: uppercase;
+      }
+    }
+  }
+  

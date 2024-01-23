@@ -1,0 +1,90 @@
+.addBooksPageDiv {
+  width: 80%;
+  margin: auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: $light-green;
+    color: $darker-green;
+
+    h2 {
+      text-transform: uppercase;
+    }
+  }
+
+  form {
+    display: grid;
+    grid-gap: 16px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+      color: $darker-green;
+
+      input,
+      textarea,
+      select {
+        padding: 4px;
+        margin-top: 8px;
+        font-size: 14px;
+        background: $cream;
+        border: 2px solid $darker-green;
+        border-radius: 5px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      select.custom-select-class {
+        height: auto;
+        border: 2px solid $darker-green; // Add your desired border color
+        border-radius: 5px;
+        background: $cream;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .genre-select {
+        position: relative;
+
+        .selected-values {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+
+          .selected-genre {
+            background: $cream;
+            padding: 4px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+
+            .remove-genre {
+              margin-left: 4px;
+              cursor: pointer;
+              background-color: #c0c0c0;
+              border: none;
+              padding: 2px 4px;
+              border-radius: 4px;
+            }
+          }
+        }
+
+        select {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
