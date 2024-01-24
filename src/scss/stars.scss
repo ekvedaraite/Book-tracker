@@ -1,0 +1,23 @@
+.rating-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .star {
+    font-size: 20px;
+    margin-right: 4px;
+    display: inline-block;
+    color: $grey;
+    text-shadow: 0 0 10px $grey; /* Adjust the shadow size as needed */
+  }
+  
+  .star-yellow {
+    font-size: 20px;
+    margin-right: 4px;
+    display: inline-block;
+    color: $yellow;
+    text-shadow: 0 0 10px $dark-grey; /* Adjust the shadow size as needed */
+  }
+  

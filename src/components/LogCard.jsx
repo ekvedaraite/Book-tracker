@@ -9,7 +9,7 @@ const LogCard = ({ log, onDeleteClick }) => (
     </div>
     <div className="card-content">
       <p><strong>Date:</strong> {log.date}</p>
-      <p><strong>Page:</strong> {log.pagesRead ?? 'N/A'}</p>
+      <p><strong>Page:</strong> {log.page ?? 'N/A'}</p>
       <p><strong>Comment:</strong> {log.comment}</p>
     </div>
   </div>
