@@ -63,11 +63,12 @@ const LogForm = ({
           />
         </div>
       )}
-      <div>
-        <label>Finished Reading:</label>
+      <div className='finishedDiv'>
+        <label className='finishedLabel'>Finished Reading:</label>
         <input
           type="checkbox"
           checked={finished}
+          className='checkbox'
           onChange={(e) => setFinished(e.target.checked)}
         />
       </div>

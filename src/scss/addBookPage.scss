@@ -88,3 +88,14 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .addBooksPageDiv {
+    width: 100%;
+
+    form {
+      width: 90%;
+      margin: auto;
+    }
+  }
+}

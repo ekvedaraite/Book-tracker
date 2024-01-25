@@ -30,3 +30,35 @@
     .bookInfo {
       margin: 10px;
     }
+
+    @media screen and (max-width: 768px) {
+      .bookLogsPageDiv {
+        width: 100%;
+  
+        .header {
+          flex-direction: column;
+          align-items: center;
+  
+          h2 {
+            margin-bottom: 10px;
+            font-size: 14px;
+          }
+        }
+  
+        .bookDetailsDiv {
+          flex-direction: column;
+          align-items: center;
+  
+          .bookLogImg {
+            width: 80%;
+            max-width: 150px;
+            margin: 10px auto;
+          }
+  
+          .bookInfo {
+            width: 80%;
+            margin: 10px;
+          }
+        }
+      }
+    }

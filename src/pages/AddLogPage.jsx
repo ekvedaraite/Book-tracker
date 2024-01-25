@@ -77,8 +77,8 @@ const AddLogPage = () => {
   };
 
   return (
-    <div>
-      <h2>Add Log for {bookDetails.title}</h2>
+    <div className='addBookLogPage'>
+      <h2 className='header'>Add Log for {bookDetails.title}</h2>
       <LogForm
         date={date}
         setDate={setDate}

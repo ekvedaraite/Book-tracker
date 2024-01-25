@@ -1,15 +1,31 @@
+.log-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px; /* Adjust the gap as needed */
+  margin: 0 auto; /* Center the log-cards */
+}
+
 .log-card {
   border: 3px solid $light-green;
   border-radius: 5px;
   box-sizing: border-box;
-  width: calc(25% - 20px); /* Adjust the width and gap as needed */
+  width: calc(100% - 20px); /* Adjust the width and gap as needed */
   margin: 10px; /* Adjust the margin as needed */
   position: relative;
 
-  .trash-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+  @media screen and (max-width: 768px) {
+    .trash-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .log-cards {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin: 0 20px;
   }
 }

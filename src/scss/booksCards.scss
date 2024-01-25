@@ -32,3 +32,10 @@
     margin-top: 3px;
   }
   
+
+  @media screen and (max-width: 768px) {
+    .bookCardsContainer {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      margin: 0 30px;
+    }
+  }

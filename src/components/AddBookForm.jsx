@@ -1,4 +1,3 @@
-// AddBookForm.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import GenreSelect from './GenreSelect';
@@ -15,6 +14,7 @@ const AddBookForm = () => {
     releaseDate: '',
   });
 
+  const [genreError, setGenreError] = useState('');
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -24,6 +24,13 @@ const AddBookForm = () => {
 
   const handleGenreChange = (selectedGenres) => {
     setBookData((prevData) => ({ ...prevData, genre: selectedGenres }));
+
+    // Check if at least one genre is selected
+    if (selectedGenres.length === 0) {
+      setGenreError('Please select at least one genre.');
+    } else {
+      setGenreError('');
+    }
   };
 
   const handleSubmit = (e) => {
@@ -47,6 +54,11 @@ const AddBookForm = () => {
 
     if (!bookData.description) {
       alert('Please fill in the Description field.');
+      return;
+    }
+
+    if (bookData.genre.length === 0) {
+      alert('Please select at least one genre.');
       return;
     }
 
@@ -102,6 +114,7 @@ const AddBookForm = () => {
       <label>
         Genre (select multiple):
         <GenreSelect value={bookData.genre} onChange={handleGenreChange} />
+        {genreError && <div className="error-message">{genreError}</div>}
       </label>
       <TextInput label="Pages" name="pages" value={bookData.pages} onChange={handleInputChange} />
       <TextInput label="Release Date" name="releaseDate" type="date" value={bookData.releaseDate} onChange={handleInputChange} />

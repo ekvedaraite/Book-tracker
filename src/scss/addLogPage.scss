@@ -1,0 +1,86 @@
+.addBookLogPage {
+    width: 80%;
+    margin: auto;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: $light-green;
+        color: $darker-green;
+
+        h2 {
+            text-transform: uppercase;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+        label {
+            display: inline-block;
+        }
+
+        .finishedDiv {
+            display: inline-block;
+            vertical-align: top;
+
+            .checkbox{
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+
+        input,
+        textarea,
+        select {
+            padding: 4px;
+            font-size: 14px;
+            background: $cream;
+            border: 2px solid $darker-green;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 8px; // Adjust spacing between elements
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        select.custom-select-class {
+            height: auto;
+            border: 2px solid $darker-green;
+            border-radius: 5px;
+            background: $cream;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        select {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .addBookLogPage {
+      width: 100%;
+  
+      form {
+        width: 90%;
+        margin: auto;
+      }
+    }
+  }
