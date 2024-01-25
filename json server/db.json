@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "id": 1706186677709,
+      "id": "1706186677709",
       "img": "https://m.media-amazon.com/images/I/818FB6bF4aL._AC_UF1000,1000_QL80_.jpg",
       "title": "Harry Potter and the Philosopher's Stone",
       "author": "J. K. Rowling",
@@ -16,7 +16,7 @@
       "releaseDate": "1997-06-26"
     },
     {
-      "id": 1706186854127,
+      "id": "1706186854127",
       "img": "https://upload.wikimedia.org/wikipedia/en/5/5c/Harry_Potter_and_the_Chamber_of_Secrets.jpg",
       "title": "Harry Potter and the Chamber of Secrets",
       "author": "J. K. Rowling",
@@ -31,7 +31,7 @@
       "releaseDate": "1998-07-02"
     },
     {
-      "id": 1706186995555,
+      "id": "1706186995555",
       "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
       "title": "Harry Potter and the Prisoner of Azkaban",
       "author": "J. K. Rowling",
@@ -46,7 +46,7 @@
       "releaseDate": "1999-07-08"
     },
     {
-      "id": 1706187366536,
+      "id": "1706187366536",
       "img": "https://upload.wikimedia.org/wikipedia/en/b/b6/Harry_Potter_and_the_Goblet_of_Fire_cover.png",
       "title": "Harry Potter and the Goblet of Fire",
       "author": "J. K. Rowling",
@@ -59,21 +59,6 @@
       ],
       "pages": "636",
       "releaseDate": "2000-07-08"
-    },
-    {
-      "id": 1706187472614,
-      "img": "https://upload.wikimedia.org/wikipedia/en/7/70/Harry_Potter_and_the_Order_of_the_Phoenix.jpg",
-      "title": "Harry Potter and the Order of the Phoenix",
-      "author": "J. K. Rowling",
-      "description": "What is Harry Potter and the Order of the Phoenix about? In the fifth installment of the Harry Potter series, Harry returns to Hogwarts for his fifth year and discovers a secret society called the Order of the Phoenix, dedicated to fighting the dark wizard Voldemort.",
-      "genre": [
-        "Young adult fiction",
-        "Novel",
-        "Fantasy",
-        "Fiction"
-      ],
-      "pages": "766",
-      "releaseDate": "2003-06-21"
     }
   ],
   "logs": [
@@ -140,6 +125,14 @@
       "page": 22,
       "comment": "eėr",
       "rating": 3
+    },
+    {
+      "id": "17a6",
+      "bookId": "1706186677709",
+      "date": "2024-01-18",
+      "page": "5",
+      "comment": "reg",
+      "rating": null
     }
   ]
 }

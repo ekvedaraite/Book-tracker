@@ -36,4 +36,44 @@ const getBookDetails = (bookId) => {
     });
 };
 
-export default { addLog, getBookDetails };
+const getBookLogs = (bookId) => {
+  const url = `${API_URL}/logs?bookId=${bookId}`;
+  return fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    });
+};
+
+const updateLog = (logId, logData) => {
+  const url = `${API_URL}/logs/${logId}`;
+  return fetch(url, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(logData),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    });
+};
+
+const deleteLog = (logId) => {
+  const url = `${API_URL}/logs/${logId}`;
+  return fetch(url, {
+    method: 'DELETE',
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+    });
+};
+
+export default { addLog, getBookDetails, getBookLogs, updateLog, deleteLog };

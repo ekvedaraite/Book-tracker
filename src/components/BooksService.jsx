@@ -1,4 +1,6 @@
+// BooksService.jsx
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import BookCard from './BookCard';
 
 const BooksService = () => {
@@ -29,11 +31,20 @@ const BooksService = () => {
 
   return (
     <div className="bookCardsContainer">
-      {books.map((book) => (
-        <div key={book.id} className="singleBookCard">
-          <BookCard book={book} onDeleteClick={handleDeleteBook} />
-        </div>
-      ))}
+      <AnimatePresence>
+        {books.map((book) => (
+          <motion.div
+            key={book.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="singleBookCard">
+              <BookCard book={book} onDeleteClick={handleDeleteBook} />
+            </div>
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 };

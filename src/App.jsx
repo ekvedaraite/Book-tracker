@@ -1,11 +1,12 @@
 // App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import '../src/scss/styles.scss'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import '../src/scss/styles.scss';
 import BooksPage from './pages/BooksPage';
 import AddBooksPage from './pages/AddBooksPage';
 import BookLogsPage from './pages/BookLogsPage';
 import AddLogPage from './pages/AddLogPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
   return (
@@ -15,6 +16,9 @@ const App = () => {
         <Route path="/" element={<BooksPage />} />
         <Route path="/book-logs/:id" element={<BookLogsPage />} />
         <Route path="/books/:id/add-log" element={<AddLogPage />} />
+        
+        {/* Catch-all route for 404 errors */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

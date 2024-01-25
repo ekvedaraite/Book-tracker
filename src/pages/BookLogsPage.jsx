@@ -1,9 +1,10 @@
-// Assuming this is part of your BookLogsPage.jsx file
-
+// BookLogsPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import BookDetails from '../components/BookDetails';
 import LogCard from '../components/LogCard';
+import api from '../utils/api'; // Import your API utility functions
 
 const BookLogsPage = () => {
   const { id } = useParams();
@@ -13,20 +14,14 @@ const BookLogsPage = () => {
 
   useEffect(() => {
     // Fetch book details and log data from the API
-    fetch(`http://localhost:4000/books?id=${id}`)
-      .then(response => response.json())
-      .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          console.log('Fetched book details:', data[0]);
-          setBookDetails(data[0]);
-        } else {
-          console.error('No book details found in the response:', data);
-        }
+    api.getBookDetails(id)
+      .then((data) => {
+        console.log('Fetched book details:', data);
+        setBookDetails(data);
       })
       .catch(error => console.error('Error fetching book details:', error));
 
-    fetch(`http://localhost:4000/logs?bookId=${id}`)
-      .then(response => response.json())
+    api.getBookLogs(id)
       .then(data => {
         console.log('Fetched book logs:', data);
         setBookLogs(data);
@@ -34,21 +29,27 @@ const BookLogsPage = () => {
       .catch(error => console.error('Error fetching book logs:', error));
   }, [id]);
 
-  console.log('bookDetails in BookLogsPage:', bookDetails);
-
   const handleDeleteLog = (logId) => {
     // Perform log deletion logic using API function
-    fetch(`http://localhost:4000/logs/${logId}`, {
-      method: 'DELETE',
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+    api.deleteLog(logId)
+      .then(() => {
         // Remove the deleted log from the state
         setBookLogs((prevLogs) => prevLogs.filter((log) => log.id !== logId));
       })
       .catch((error) => console.error('Error deleting log:', error));
+  };
+
+  const handleSaveLog = (updatedLog) => {
+    // Perform the PATCH request with the updatedLog data
+    api.updateLog(updatedLog.id, updatedLog)
+      .then(() => {
+        // After successfully updating the log, trigger the onSave callback
+        setBookLogs((prevLogs) => prevLogs.map((log) => (log.id === updatedLog.id ? updatedLog : log)));
+      })
+      .catch((error) => {
+        console.error('Error updating log:', error);
+        // Handle error, e.g., show an error message to the user
+      });
   };
 
   const handleAddLog = () => {
@@ -64,9 +65,18 @@ const BookLogsPage = () => {
       </div>
       <BookDetails bookDetails={bookDetails} onAddLogClick={handleAddLog} />
       <div className='log-cards'>
-        {bookLogs.map((log) => (
-          <LogCard key={log.id} log={log} onDeleteClick={handleDeleteLog} />
-        ))}
+        <AnimatePresence>
+          {bookLogs.map((log) => (
+            <motion.div
+              key={log.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <LogCard log={log} onDeleteClick={handleDeleteLog} onSaveEdit={handleSaveLog} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   );

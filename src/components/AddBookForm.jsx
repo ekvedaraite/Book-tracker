@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import GenreSelect from './GenreSelect';
 import TextInput from './TextInput';
 
@@ -106,7 +107,13 @@ const AddBookForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <motion.form
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5 }}
+      onSubmit={handleSubmit}
+    >
       <TextInput label="Image URL" name="img" value={bookData.img} onChange={handleInputChange} />
       <TextInput label="Title" name="title" value={bookData.title} onChange={handleInputChange} />
       <TextInput label="Author" name="author" value={bookData.author} onChange={handleInputChange} />
@@ -119,7 +126,7 @@ const AddBookForm = () => {
       <TextInput label="Pages" name="pages" value={bookData.pages} onChange={handleInputChange} />
       <TextInput label="Release Date" name="releaseDate" type="date" value={bookData.releaseDate} onChange={handleInputChange} />
       <button type="submit">Add Book</button>
-    </form>
+    </motion.form>
   );
 };
 

@@ -1,5 +1,7 @@
+// BookCard.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import RatingStars from './RatingStars';
 
 const BookCard = ({ book, onDeleteClick }) => {
@@ -27,7 +29,12 @@ const BookCard = ({ book, onDeleteClick }) => {
   };
 
   return (
-    <div className='bookCardDiv'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className='bookCardDiv'
+    >
       {/* Add a Link to navigate to BookLogsPage with the book ID */}
       <Link to={`/book-logs/${book.id}`}>
         <img
@@ -41,7 +48,7 @@ const BookCard = ({ book, onDeleteClick }) => {
       {bookRating !== null && <RatingStars rating={bookRating} />}
       <p>{book.author}</p>
       <button onClick={handleDeleteClick}>Delete</button>
-    </div>
+    </motion.div>
   );
 };
 
