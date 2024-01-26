@@ -5,26 +5,27 @@ import { motion } from 'framer-motion';
 import RatingStars from './RatingStars';
 
 const BookCard = ({ book, onDeleteClick }) => {
-  const [bookRating, setBookRating] = useState(null);
+  const [allLogs, setAllLogs] = useState([]);
 
   useEffect(() => {
-    // Fetch the book logs to get the rating
+    // Fetch logs for the specific book
     fetch(`http://localhost:4000/logs?bookId=${book.id}`)
-      .then(response => response.json())
-      .then(data => {
-        // Extract the rating from logs
-        const rating = data.length > 0 ? data[0].rating : null;
-        setBookRating(rating);
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
       })
-      .catch(error => console.error('Error fetching book logs:', error));
+      .then(data => setAllLogs(data))
+      .catch(error => console.error('Error fetching logs for the book:', error));
   }, [book.id]);
+  
 
-  const handleImageError = (event) => {
+  const handleImageError = event => {
     console.error('Error loading image:', event.target.src);
   };
 
   const handleDeleteClick = () => {
-    // Trigger the onDeleteClick prop with the book ID
     onDeleteClick && onDeleteClick(book.id);
   };
 
@@ -35,7 +36,6 @@ const BookCard = ({ book, onDeleteClick }) => {
       exit={{ opacity: 0 }}
       className='bookCardDiv'
     >
-      {/* Add a Link to navigate to BookLogsPage with the book ID */}
       <Link to={`/book-logs/${book.id}`}>
         <img
           src={book.img}
@@ -45,7 +45,9 @@ const BookCard = ({ book, onDeleteClick }) => {
         />
       </Link>
       <h3>{book.title}</h3>
-      {bookRating !== null && <RatingStars rating={bookRating} />}
+
+      <RatingStars logs={allLogs} bookId={book.id} />
+
       <p>{book.author}</p>
       <button onClick={handleDeleteClick}>Delete</button>
     </motion.div>

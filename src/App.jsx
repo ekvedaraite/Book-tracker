@@ -16,8 +16,6 @@ const App = () => {
         <Route path="/" element={<BooksPage />} />
         <Route path="/book-logs/:id" element={<BookLogsPage />} />
         <Route path="/books/:id/add-log" element={<AddLogPage />} />
-        
-        {/* Catch-all route for 404 errors */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>

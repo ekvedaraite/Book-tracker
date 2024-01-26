@@ -1,138 +1,174 @@
 {
   "books": [
     {
-      "id": "1706186677709",
-      "img": "https://m.media-amazon.com/images/I/818FB6bF4aL._AC_UF1000,1000_QL80_.jpg",
-      "title": "Harry Potter and the Philosopher's Stone",
+      "id": "1706256617513",
+      "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
+      "title": "faee",
       "author": "J. K. Rowling",
+      "description": "fae",
+      "genre": [
+        "Fiction"
+      ],
+      "pages": "356544553",
+      "releaseDate": "2024-01-19"
+    },
+    {
+      "id": "1706267906821",
+      "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
+      "title": "WD",
+      "author": "Dw",
       "description": "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world. On his eleventh birthday, Harry Potter discovers that he is no ordinary boy.",
       "genre": [
-        "Novel",
-        "Children's literature",
-        "Fantasy",
-        "Fiction"
+        "Mystery"
       ],
-      "pages": "223",
-      "releaseDate": "1997-06-26"
-    },
-    {
-      "id": "1706186854127",
-      "img": "https://upload.wikimedia.org/wikipedia/en/5/5c/Harry_Potter_and_the_Chamber_of_Secrets.jpg",
-      "title": "Harry Potter and the Chamber of Secrets",
-      "author": "J. K. Rowling",
-      "description": "The plot follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the school's corridors warn that the \"Chamber of Secrets\" has been opened and that the \"heir of Slytherin\" would kill all pupils who do not come from all-magical families.",
-      "genre": [
-        "Novel",
-        "Fantasy",
-        "Fiction",
-        "Adventure fiction"
-      ],
-      "pages": "251",
-      "releaseDate": "1998-07-02"
-    },
-    {
-      "id": "1706186995555",
-      "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
-      "title": "Harry Potter and the Prisoner of Azkaban",
-      "author": "J. K. Rowling",
-      "description": "The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban, the wizard prison, believed to be one of Lord Voldemort's old allies.",
-      "genre": [
-        "Novel",
-        "Fantasy",
-        "Adventure fiction",
-        "Fiction"
-      ],
-      "pages": "317",
-      "releaseDate": "1999-07-08"
-    },
-    {
-      "id": "1706187366536",
-      "img": "https://upload.wikimedia.org/wikipedia/en/b/b6/Harry_Potter_and_the_Goblet_of_Fire_cover.png",
-      "title": "Harry Potter and the Goblet of Fire",
-      "author": "J. K. Rowling",
-      "description": "It follows Harry Potter, a wizard in his fourth year at Hogwarts School of Witchcraft and Wizardry, and the mystery surrounding the entry of Harry's name into the Triwizard Tournament, in which he is forced to compete. The book was published in the United Kingdom by Bloomsbury and in the United States by Scholastic.",
-      "genre": [
-        "Novel",
-        "Children's literature",
-        "Fantasy",
-        "Fiction"
-      ],
-      "pages": "636",
-      "releaseDate": "2000-07-08"
+      "pages": "9999999999999999999999999999999999999999",
+      "releaseDate": "2024-01-02"
     }
   ],
   "logs": [
     {
-      "id": "052f",
+      "id": "7dd8",
+      "bookId": "1706256617513",
+      "date": "2024-01-18",
+      "page": 6,
+      "comment": "rg",
+      "rating": 3
+    },
+    {
+      "id": "60d7",
+      "bookId": "1706256617513",
+      "date": "2024-01-10",
+      "page": 52,
+      "comment": "vdrg",
+      "rating": 3
+    },
+    {
+      "id": "777d",
+      "bookId": "1706256617513",
+      "date": "2024-01-10",
+      "page": 51,
+      "comment": "fe",
+      "rating": 3
+    },
+    {
+      "id": "a0cd",
+      "bookId": "1706256617513",
+      "date": "2024-01-25",
+      "page": 55,
+      "comment": "oul",
+      "rating": 3
+    },
+    {
+      "id": "7ebd",
+      "bookId": "1706256617513",
+      "date": "2024-01-25",
+      "page": 51,
+      "comment": "few",
+      "rating": 3
+    },
+    {
+      "id": "86e6",
+      "bookId": null,
+      "date": "2024-01-18",
+      "page": 123,
+      "comment": "few",
+      "rating": 4
+    },
+    {
+      "id": "f614",
+      "bookId": null,
+      "date": "2024-01-16",
+      "page": 54,
+      "comment": "wqd",
+      "rating": 3
+    },
+    {
+      "id": "c8cb",
+      "bookId": null,
+      "date": "2024-01-11",
+      "page": 54,
+      "comment": "few",
+      "rating": 4
+    },
+    {
+      "id": "7d7d",
       "bookId": null,
       "date": "2024-01-04",
       "page": 54,
-      "comment": "ftguy",
-      "rating": 4
-    },
-    {
-      "id": "a1e2",
-      "bookId": null,
-      "date": "2024-01-11",
-      "page": 5,
-      "comment": "hkb",
-      "rating": null
-    },
-    {
-      "id": "5239",
-      "bookId": null,
-      "date": "2024-01-25",
-      "page": 123,
-      "comment": "sadc",
+      "comment": "aws",
       "rating": 3
     },
     {
-      "id": "d241",
+      "id": "54bd",
       "bookId": null,
-      "date": "2024-01-18",
-      "page": 8,
-      "comment": "io",
-      "rating": null
+      "date": "2024-01-02",
+      "page": 351,
+      "comment": "few",
+      "rating": 2
     },
     {
-      "id": "ed94",
+      "id": "9142",
       "bookId": null,
-      "date": "2024-01-24",
-      "page": 4,
-      "comment": "jik",
-      "rating": null
-    },
-    {
-      "id": "aa2d",
-      "bookId": "1706186854127",
-      "date": "2024-01-25",
-      "page": 222,
-      "comment": "It was a very nice bit of the book.",
-      "rating": null
-    },
-    {
-      "id": "189b",
-      "bookId": "1706186854127",
-      "date": "2024-01-23",
-      "page": 251,
-      "comment": "Loved the book",
+      "date": "2024-01-02",
+      "page": 45,
+      "comment": "6g87",
       "rating": 4
     },
     {
-      "id": "9a83",
-      "bookId": "1706186854127",
-      "date": "2024-01-23",
-      "page": 22,
-      "comment": "eėr",
-      "rating": 3
+      "id": "15b7",
+      "bookId": "1706266654841",
+      "date": "2024-01-10",
+      "page": 46545,
+      "comment": "sfe",
+      "rating": 2
     },
     {
-      "id": "17a6",
-      "bookId": "1706186677709",
-      "date": "2024-01-18",
-      "page": "5",
-      "comment": "reg",
-      "rating": null
+      "id": "cc06",
+      "bookId": "1706266955699",
+      "date": "2024-01-26",
+      "page": 1,
+      "comment": "Initial rating",
+      "rating": 0
+    },
+    {
+      "id": "c35d",
+      "bookId": "1706266955693",
+      "date": "2024-01-09",
+      "page": 645,
+      "comment": "few",
+      "rating": 5
+    },
+    {
+      "id": "4085",
+      "bookId": null,
+      "date": "2024-01-26",
+      "page": 1,
+      "comment": "Initial rating",
+      "rating": 0
+    },
+    {
+      "id": "8aeb",
+      "bookId": null,
+      "date": "2024-01-02",
+      "page": 546,
+      "comment": "few",
+      "rating": 2
+    },
+    {
+      "id": "6923",
+      "bookId": null,
+      "date": "2024-01-03",
+      "page": 321,
+      "comment": "da",
+      "rating": 2
+    },
+    {
+      "id": "4e61",
+      "bookId": "1706267906821",
+      "date": "2024-01-03",
+      "page": 54,
+      "comment": "sgrededededededededededededededededededededededededededededededededededededededededededededededededededededededededededededededededededdegeaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaq",
+      "rating": 2
     }
   ]
 }

@@ -1,3 +1,4 @@
+// AddBookForm.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -90,13 +91,12 @@ const AddBookForm = () => {
     }
 
     // TODO: Perform POST request to add a new book
-    // Use fetch or your preferred HTTP library for making API requests
     fetch('http://localhost:4000/books', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ...bookData, id: Date.now() }), // Using Date.now() for simplicity, replace with your preferred ID generation logic
+      body: JSON.stringify({ ...bookData, id: String(Date.now()) }),
     })
       .then((response) => response.json())
       .then(() => {
