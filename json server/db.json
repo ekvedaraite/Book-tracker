@@ -23,6 +23,18 @@
       ],
       "pages": "9999999999999999999999999999999999999999",
       "releaseDate": "2024-01-02"
+    },
+    {
+      "id": "1706539287350",
+      "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
+      "title": "bdefr",
+      "author": "LAND",
+      "description": "The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban, the wizard prison, believed to be one of Lord Voldemort's old allies.",
+      "genre": [
+        "Novel"
+      ],
+      "pages": "317",
+      "releaseDate": "2024-01-10"
     }
   ],
   "logs": [
@@ -30,7 +42,7 @@
       "id": "7dd8",
       "bookId": "1706256617513",
       "date": "2024-01-18",
-      "page": 6,
+      "page": "899",
       "comment": "rg",
       "rating": 3
     },
@@ -56,14 +68,6 @@
       "date": "2024-01-25",
       "page": 55,
       "comment": "oul",
-      "rating": 3
-    },
-    {
-      "id": "7ebd",
-      "bookId": "1706256617513",
-      "date": "2024-01-25",
-      "page": 51,
-      "comment": "few",
       "rating": 3
     },
     {
@@ -169,6 +173,14 @@
       "page": 54,
       "comment": "sgrededededededededededededededededededededededededededededededededededededededededededededededededededededededededededededededededededdegeaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaq",
       "rating": 2
+    },
+    {
+      "id": "fdb3",
+      "bookId": "1706539287350",
+      "date": "2024-01-23",
+      "page": 5,
+      "comment": "fer",
+      "rating": 3
     }
   ]
 }

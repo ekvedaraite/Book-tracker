@@ -9,3 +9,8 @@ body {
     font-family: $font;
     background: $cream;
 }
+
+body.dark-mode {
+    background: $black;
+    color: $light-green;
+}

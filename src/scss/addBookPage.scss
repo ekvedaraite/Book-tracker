@@ -2,17 +2,9 @@
   width: 80%;
   margin: auto;
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: $light-green;
-    color: $darker-green;
-
-    h2 {
-      text-transform: uppercase;
-    }
+  .bookFormBtn {
+    margin: auto;
+    width: 20%;
   }
 
   form {
@@ -42,7 +34,7 @@
 
       select.custom-select-class {
         height: auto;
-        border: 2px solid $darker-green; // Add your desired border color
+        border: 2px solid $darker-green;
         border-radius: 5px;
         background: $cream;
 
@@ -83,6 +75,49 @@
           left: 0;
           width: 100%;
           z-index: 1;
+        }
+      }
+    }
+  }
+
+  &.dark-mode {
+    form {
+      label {
+      color: $light-green;
+
+
+        input,
+        textarea,
+        select {
+          background: $black;
+          border: 2px solid $light-green;
+          color: $light-green;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        select.custom-select-class {
+          background: $black;
+          color: $light-green;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .genre-select {
+          .selected-values {
+            .selected-genre {
+              background: $black;
+              color: $light-green;
+            }
+          }
+
+          select {
+            background: $black;
+          }
         }
       }
     }

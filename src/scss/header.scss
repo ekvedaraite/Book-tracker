@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: $light-green;
+    color: $darker-green;
+    border-radius: 8px;
+  
+    h2 {
+      text-transform: uppercase;
+    }
+  }
+  
+  .header.dark-mode {
+    background-color: $black;
+    color: $light-green;
+    border: 2px solid $light-green;
+  }
+  

@@ -1,35 +1,20 @@
 .booksPageDiv {
-    width: 80%;
-    margin: auto;
-  
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      background-color: $light-green;
-      color: $darker-green;
-  
-      h2 {
-        text-transform: uppercase;
-      }
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .booksPageDiv {
+    width: 100%;
+  }
+
+  .booksPageDiv .header {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 10px;
     }
   }
-  
-
-
-  @media screen and (max-width: 768px) {
-    .booksPageDiv {
-      width: 100%;
-    }
-  
-    .booksPageDiv .header {
-      width: 100%;
-      flex-direction: column;
-      text-align: center;
-  
-      h2 {
-        margin-bottom: 10px;
-      }
-    }
-  }
+}

@@ -1,0 +1,30 @@
+.edit-log-form {
+    label {
+      color: $darker-green;
+    }
+  
+    input, textarea {
+      background: $cream;
+      color: $darker-green;
+      border: 2px solid $light-green;
+      border-radius: 5px;
+      padding: 8px;
+      margin: 8px 0;
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    
+    &.dark-mode{
+        label {
+            color: $light-green;
+        }
+
+        input, textarea{
+            background: $black;
+            color: $light-green;
+        }
+    }
+  }
+  

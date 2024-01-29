@@ -1,5 +1,7 @@
+// LogForm.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useDarkMode } from '../components/DarkModeContext';
 
 const PageNumberInput = ({ value, onChange }) => {
   const handleInputChange = (e) => {
@@ -39,8 +41,11 @@ const LogForm = ({
   setFinished,
   handleAddLog,
 }) => {
+
+  const { isDarkMode } = useDarkMode();
+  
   return (
-    <div>
+    <div className={`AddLogPage ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <motion.form
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -79,7 +84,7 @@ const LogForm = ({
             onChange={(e) => setFinished(e.target.checked)}
           />
         </div>
-        <button type="submit">Add Log</button>
+        <button className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`} type="submit">Add Log</button>
       </motion.form>
     </div>
   );

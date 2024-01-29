@@ -3,8 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import LogForm from '../components/LogForm';
 import api from '../utils/api';
+import { useDarkMode } from '../components/DarkModeContext';
 
 const AddLogPage = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const { id } = useParams();
   const navigate = useNavigate();
   const [page, setPage] = useState('');
@@ -77,8 +79,10 @@ const AddLogPage = () => {
   };
 
   return (
-    <div className='addBookLogPage'>
-      <h2 className='header'>Add Log for {bookDetails.title}</h2>
+    <div className={`addBookLogPage ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      <div className={`header ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      <h2 >Add Log for {bookDetails.title}</h2>
+      </div>
       <LogForm
         date={date}
         setDate={setDate}

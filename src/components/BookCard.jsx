@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import RatingStars from './RatingStars';
+import { useDarkMode } from '../components/DarkModeContext'; // Import the context hook
 
 const BookCard = ({ book, onDeleteClick }) => {
   const [allLogs, setAllLogs] = useState([]);
+  const { isDarkMode } = useDarkMode(); // Use the context hook
 
   useEffect(() => {
     // Fetch logs for the specific book
@@ -19,7 +21,6 @@ const BookCard = ({ book, onDeleteClick }) => {
       .then(data => setAllLogs(data))
       .catch(error => console.error('Error fetching logs for the book:', error));
   }, [book.id]);
-  
 
   const handleImageError = event => {
     console.error('Error loading image:', event.target.src);
@@ -34,7 +35,7 @@ const BookCard = ({ book, onDeleteClick }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className='bookCardDiv'
+      className={`bookCardDiv ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
     >
       <Link to={`/book-logs/${book.id}`}>
         <img
@@ -49,7 +50,9 @@ const BookCard = ({ book, onDeleteClick }) => {
       <RatingStars logs={allLogs} bookId={book.id} />
 
       <p>{book.author}</p>
-      <button onClick={handleDeleteClick}>Delete</button>
+      <button className={`deleteBtn ${isDarkMode ? 'dark-mode' : 'light-mode'}`} onClick={handleDeleteClick}>
+        Delete
+      </button>
     </motion.div>
   );
 };

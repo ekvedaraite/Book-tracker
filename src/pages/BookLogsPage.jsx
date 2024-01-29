@@ -4,13 +4,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import BookDetails from '../components/BookDetails';
 import LogCard from '../components/LogCard';
-import api from '../utils/api'; // Import your API utility functions
+import api from '../utils/api';
+import { useDarkMode } from '../components/DarkModeContext'; // Import the context hook
 
 const BookLogsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
   const [bookLogs, setBookLogs] = useState([]);
+  const { isDarkMode } = useDarkMode(); // Use the context hook
 
   useEffect(() => {
     // Fetch book details and log data from the API
@@ -58,13 +60,13 @@ const BookLogsPage = () => {
   };
 
   return (
-    <div className='bookLogsPageDiv'>
-      <div className='header'>
+    <div className={`bookLogsPageDiv ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      <div className={`header ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
         <h2>Book Logs for {bookDetails.title}</h2>
-        <button onClick={() => navigate('/')}>Go Back</button>
+        <button className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`} onClick={() => navigate('/')}>Go Back</button>
       </div>
       <BookDetails bookDetails={bookDetails} onAddLogClick={handleAddLog} />
-      <div className='log-cards'>
+      <div className="log-cards">
         <AnimatePresence>
           {bookLogs.map((log) => (
             <motion.div

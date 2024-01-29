@@ -2,19 +2,6 @@
     width: 80%;
     margin: auto;
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: $light-green;
-        color: $darker-green;
-
-        h2 {
-            text-transform: uppercase;
-        }
-    }
-
     form {
         display: flex;
         flex-direction: column;
@@ -24,6 +11,7 @@
 
         label {
             display: inline-block;
+            color: $darker-green;
         }
 
         .finishedDiv {
@@ -69,6 +57,20 @@
             left: 0;
             width: 100%;
             z-index: 1;
+        }
+    }
+
+    &.dark-mode{
+        label {
+            color: $light-green;
+        }
+
+        input,
+        textarea,
+        select{
+            background: $black;
+            border: 2px solid $light-green;
+            color: $light-green;
         }
     }
 }

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import GenreSelect from './GenreSelect';
 import TextInput from './TextInput';
+import { useDarkMode } from '../components/DarkModeContext'; // Import the context hook
 
 const AddBookForm = () => {
   const [bookData, setBookData] = useState({
@@ -19,6 +20,8 @@ const AddBookForm = () => {
   const [genreError, setGenreError] = useState('');
   const navigate = useNavigate();
 
+  const { isDarkMode } = useDarkMode(); // Use the context hook
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setBookData((prevData) => ({ ...prevData, [name]: value }));
@@ -27,7 +30,6 @@ const AddBookForm = () => {
   const handleGenreChange = (selectedGenres) => {
     setBookData((prevData) => ({ ...prevData, genre: selectedGenres }));
 
-    // Check if at least one genre is selected
     if (selectedGenres.length === 0) {
       setGenreError('Please select at least one genre.');
     } else {
@@ -38,7 +40,6 @@ const AddBookForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation for required fields
     if (!bookData.img) {
       alert('Please fill in the Image URL field.');
       return;
@@ -74,14 +75,12 @@ const AddBookForm = () => {
       return;
     }
 
-    // Validate pages is a number greater than 0
     const pages = parseInt(bookData.pages, 10);
     if (isNaN(pages) || pages <= 0) {
       alert('Please enter a valid number of pages (greater than 0).');
       return;
     }
 
-    // Validate releaseDate
     const currentDate = new Date();
     const selectedDate = new Date(bookData.releaseDate);
 
@@ -90,7 +89,6 @@ const AddBookForm = () => {
       return;
     }
 
-    // TODO: Perform POST request to add a new book
     fetch('http://localhost:4000/books', {
       method: 'POST',
       headers: {
@@ -100,7 +98,6 @@ const AddBookForm = () => {
     })
       .then((response) => response.json())
       .then(() => {
-        // Navigate back to the BooksPage after a successful book addition
         navigate('/');
       })
       .catch((error) => console.error('Error adding book:', error));
@@ -108,6 +105,7 @@ const AddBookForm = () => {
 
   return (
     <motion.form
+      className={`addBookForm ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
@@ -125,7 +123,7 @@ const AddBookForm = () => {
       </label>
       <TextInput label="Pages" name="pages" value={bookData.pages} onChange={handleInputChange} />
       <TextInput label="Release Date" name="releaseDate" type="date" value={bookData.releaseDate} onChange={handleInputChange} />
-      <button type="submit">Add Book</button>
+      <button className={`bookFormBtn ${isDarkMode ? 'dark-mode' : 'light-mode'}`} type="submit">Add Book</button>
     </motion.form>
   );
 };

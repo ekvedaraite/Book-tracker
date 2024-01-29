@@ -1,7 +1,9 @@
-// EditLogForm.jsx
 import React, { useState } from 'react';
+import { useDarkMode } from '../components/DarkModeContext'; // Import the context hook
 
 const EditLogForm = ({ log, onSave, onCancel }) => {
+  const { isDarkMode } = useDarkMode(); // Use the context hook
+
   const [editedLog, setEditedLog] = useState({
     date: log.date,
     page: log.page || '',
@@ -26,15 +28,15 @@ const EditLogForm = ({ log, onSave, onCancel }) => {
   };
 
   return (
-    <div className="edit-log-form">
+    <div className={`edit-log-form ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <label>Date:</label>
       <input type="date" name="date" value={editedLog.date} onChange={handleInputChange} onKeyDown={handleKeyDown} />
       <label>Page:</label>
       <input type="text" name="page" value={editedLog.page} onChange={handleInputChange} onKeyDown={handleKeyDown} />
       <label>Comment:</label>
       <textarea name="comment" value={editedLog.comment} onChange={handleInputChange} onKeyDown={handleKeyDown} />
-      <button onClick={handleSave}>Save</button>
-      <button onClick={onCancel}>Cancel</button>
+      <button className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`} onClick={handleSave}>Save</button>
+      <button className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`} onClick={onCancel}>Cancel</button>
     </div>
   );
 };

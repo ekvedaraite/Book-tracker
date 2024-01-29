@@ -1,13 +1,23 @@
 button {
+  padding: 5px;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &.light-mode {
     background: $light-green;
-    padding: 5px;
-    border-radius: 15px;
     border: 3px solid $darker-green;
     color: $darker-green;
-    font-weight: 600;
+  }
 
-    &:hover{
-        cursor: pointer;
-        scale: 1.2;
-    }
+  &.dark-mode {
+    background: $black;
+    border: 3px solid $light-green;
+    color: $light-green;
+  }
+
+  &:hover {
+    cursor: pointer;
+    scale: 1.1;
+  }
 }

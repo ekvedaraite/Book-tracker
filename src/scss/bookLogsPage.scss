@@ -1,64 +1,55 @@
-.bookLogsPageDiv{
-    width: 80%;
-    margin: auto;
-  
+.bookLogsPageDiv {
+  width: 80%;
+  margin: auto;
+    &.dark-mode {
+      background-color: $black;
+      color: $light-green;
+    }
+  }
+
+.bookDetailsDiv {
+  display: flex;
+  align-items: flex-start;
+}
+
+.bookLogImg {
+  width: 150px;
+  height: auto;
+  margin: 10px;
+}
+
+.bookInfo {
+  margin: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .bookLogsPageDiv {
+    width: 100%;
+
     .header {
-      display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      padding: 10px;
-      background-color: $light-green;
-      color: $darker-green;
-  
+
       h2 {
-        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+    }
+
+    .bookDetailsDiv {
+      flex-direction: column;
+      align-items: center;
+
+      .bookLogImg {
+        width: 80%;
+        max-width: 150px;
+        margin: 10px auto;
+      }
+
+      .bookInfo {
+        width: 80%;
+        margin: 10px;
       }
     }
   }
-  
-  .bookDetailsDiv {
-      display: flex;
-      align-items: flex-start;
-    }
-  
-    .bookLogImg {
-      width: 150px;
-      height: auto;
-      margin: 10px;
-    }
-  
-    .bookInfo {
-      margin: 10px;
-    }
-
-    @media screen and (max-width: 768px) {
-      .bookLogsPageDiv {
-        width: 100%;
-  
-        .header {
-          flex-direction: column;
-          align-items: center;
-  
-          h2 {
-            margin-bottom: 10px;
-            font-size: 14px;
-          }
-        }
-  
-        .bookDetailsDiv {
-          flex-direction: column;
-          align-items: center;
-  
-          .bookLogImg {
-            width: 80%;
-            max-width: 150px;
-            margin: 10px auto;
-          }
-  
-          .bookInfo {
-            width: 80%;
-            margin: 10px;
-          }
-        }
-      }
-    }
+}
