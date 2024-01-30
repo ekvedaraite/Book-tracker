@@ -1,30 +1,41 @@
 .edit-log-form {
-    label {
-      color: $darker-green;
-    }
-  
-    input, textarea {
-      background: $cream;
-      color: $darker-green;
-      border: 2px solid $light-green;
-      border-radius: 5px;
-      padding: 8px;
-      margin: 8px 0;
-  
-      &:hover {
-        cursor: pointer;
-      }
-    }
-    
-    &.dark-mode{
-        label {
-            color: $light-green;
-        }
+  label {
+    color: $darker-green;
+  }
 
-        input, textarea{
-            background: $black;
-            color: $light-green;
-        }
+  input, textarea {
+    background: $cream;
+    color: $darker-green;
+    border: 2px solid $light-green;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
     }
   }
   
+  &.dark-mode {
+      label {
+          color: $light-green;
+      }
+
+      input, textarea {
+          background: $black;
+          color: $light-green;
+      }
+  }
+
+  &.edit-mode {
+      input, textarea {
+          width: 100%;
+          box-sizing: border-box;
+      }
+    
+      .log-card {
+          height: auto;
+      }
+  }
+}

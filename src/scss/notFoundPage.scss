@@ -1,29 +1,38 @@
 .notFoundPageDiv {
-        width: 80%;
-        margin: auto;
-      
-        .header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px;
-          background-color: $light-green;
-          color: $darker-green;
-      
-          h2 {
-            text-transform: uppercase;
-          }
-        }
-      
-        p {
-            text-align: center;
-            margin: 20px;
-        }
+  width: 80%;
+  margin: auto;
 
-        .giphy-embed {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-          }
+  p {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .giphy-embed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  // Media query for screens 768px and smaller
+  @media (max-width: 768px) {
+    width: 90%; // Adjust the width for smaller screens
+
+    .header {
+      flex-direction: column;
+      text-align: center;
+
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+
+    p {
+      font-size: 14px; // Adjust the font size for smaller screens
+    }
+
+    .giphy-embed {
+      width: 100%; // Make the GIF take the full width
+    }
+  }
 }

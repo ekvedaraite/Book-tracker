@@ -1,0 +1,29 @@
+.filterAndSortDiv {
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap; /* Add this to allow items to wrap onto the next line */
+}
+
+.filterByAuthor,
+.sortBy {
+    color: $darker-green;
+    padding: 5px;
+}
+
+#authorFilter,
+#sortCriteria {
+    background: $cream;
+    border: 2px solid $darker-green;
+    border-radius: 8px;
+    color: $darker-green;
+    margin: 5px; /* Add margin to create space between items */
+}
+
+@media screen and (max-width: 768px) {
+    .filterByAuthor,
+    .sortBy,
+    #authorFilter,
+    #sortCriteria {
+        width: 100%; /* Set the width to 100% for smaller screens to make them stack vertically */
+    }
+}

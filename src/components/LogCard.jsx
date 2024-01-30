@@ -44,7 +44,7 @@ const LogCard = ({ log, onDeleteClick, onSaveEdit }) => {
         <div className="card-content">
           <p><strong>Date:</strong> {log.date}</p>
           <p><strong>Page:</strong> {log.page ?? 'N/A'}</p>
-          <p><strong>Comment:</strong> {log.comment}</p>
+          <p className='logComment'><strong>Comment:</strong> <br/><span className="comment-text">{log.comment}</span></p>
         </div>
       )}
     </motion.div>

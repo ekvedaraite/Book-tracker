@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDarkMode } from '../components/DarkModeContext'; // Import the context hook
+import { useDarkMode } from '../components/DarkModeContext';
 
 const EditLogForm = ({ log, onSave, onCancel }) => {
   const { isDarkMode } = useDarkMode(); // Use the context hook
@@ -28,7 +28,7 @@ const EditLogForm = ({ log, onSave, onCancel }) => {
   };
 
   return (
-    <div className={`edit-log-form ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`edit-log-form ${isDarkMode ? 'dark-mode' : 'light-mode'} ${editedLog.isEditMode ? 'edit-mode' : ''}`}>
       <label>Date:</label>
       <input type="date" name="date" value={editedLog.date} onChange={handleInputChange} onKeyDown={handleKeyDown} />
       <label>Page:</label>

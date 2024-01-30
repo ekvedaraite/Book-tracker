@@ -25,33 +25,39 @@
       "releaseDate": "2024-01-02"
     },
     {
-      "id": "1706539287350",
+      "id": "1706610543189",
       "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
-      "title": "bdefr",
-      "author": "LAND",
+      "title": "ehyįtr",
+      "author": "Ryzis",
+      "description": "The plot follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the school's corridors warn that the \"Chamber of Secrets\" has been opened and that the \"heir of Slytherin\" would kill all pupils who do not come from all-magical families.",
+      "genre": [
+        "Narrative",
+        "Novel",
+        "Science fiction"
+      ],
+      "pages": "555555555555",
+      "releaseDate": "2024-01-30"
+    },
+    {
+      "id": "1706610628259",
+      "img": "https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
+      "title": "LALALALALALAL",
+      "author": "J. K. Rowling",
       "description": "The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban, the wizard prison, believed to be one of Lord Voldemort's old allies.",
       "genre": [
         "Novel"
       ],
-      "pages": "317",
-      "releaseDate": "2024-01-10"
+      "pages": "56545666666666666666",
+      "releaseDate": "2024-01-23"
     }
   ],
   "logs": [
-    {
-      "id": "7dd8",
-      "bookId": "1706256617513",
-      "date": "2024-01-18",
-      "page": "899",
-      "comment": "rg",
-      "rating": 3
-    },
     {
       "id": "60d7",
       "bookId": "1706256617513",
       "date": "2024-01-10",
       "page": 52,
-      "comment": "vdrg",
+      "comment": "Labas, Kaip jums sekasi? Nelabai žinau, ką aš čia rašau, bet nu tipo testinam :)",
       "rating": 3
     },
     {
@@ -176,11 +182,19 @@
     },
     {
       "id": "fdb3",
-      "bookId": "1706539287350",
+      "bookId": null,
       "date": "2024-01-23",
       "page": 5,
       "comment": "fer",
       "rating": 3
+    },
+    {
+      "id": "2311",
+      "bookId": null,
+      "date": "2024-01-24",
+      "page": 654,
+      "comment": "Labukas :S",
+      "rating": 2
     }
   ]
 }

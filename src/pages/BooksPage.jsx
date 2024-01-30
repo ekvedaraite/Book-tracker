@@ -5,43 +5,31 @@ import BooksService from '../components/BooksService';
 import { useDarkMode } from '../components/DarkModeContext';
 
 const BooksPage = () => {
-  const [allLogs, setAllLogs] = useState([]);
   const [authors, setAuthors] = useState([]); // State to store authors for filtering
   const [selectedAuthor, setSelectedAuthor] = useState(''); // State to store selected author
+  const [sortCriteria, setSortCriteria] = useState(''); // State to store sorting criteria
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   useEffect(() => {
-    // Fetch all logs
-    fetch('http://localhost:4000/logs')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+    // Fetch books including author information
+    fetch('http://localhost:4000/books')
+      .then(response => response.json())
       .then(data => {
-        console.log('Logs data:', data);
-        setAllLogs(data);
-      })
-      .catch(error => console.error('Error fetching all logs:', error));
+        console.log('Books data:', data);
 
-    // Fetch all authors
-    fetch('http://localhost:4000/books/authors')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
+        // Extract unique authors from the received books data
+        const uniqueAuthors = Array.from(new Set(data.map(book => book.author)));
+        setAuthors(uniqueAuthors);
       })
-      .then(data => {
-        console.log('Authors data:', data);
-        setAuthors(data);
-      })
-      .catch(error => console.error('Error fetching authors:', error));
+      .catch(error => console.error('Error fetching books:', error));
   }, []);
 
   const handleAuthorChange = (e) => {
     setSelectedAuthor(e.target.value);
+  };
+
+  const handleSortChange = (e) => {
+    setSortCriteria(e.target.value);
   };
 
   return (
@@ -54,21 +42,33 @@ const BooksPage = () => {
           </button>
         </Link>
       </div>
-
-      {/* Filtering section */}
-      <div className={`filteringSection ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-        <label htmlFor="authorFilter">Filter by Author:</label>
-        <select id="authorFilter" value={selectedAuthor} onChange={handleAuthorChange}>
-          <option value="">All Authors</option>
-          {authors.map(author => (
-            <option key={author} value={author}>
-              {author}
-            </option>
-          ))}
-        </select>
+      <div className='filterAndSortDiv'>
+        <div className={`filteringSection ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+          <label className='filterByAuthor' htmlFor="authorFilter">Filter by Author:</label>
+          <select id="authorFilter" value={selectedAuthor} onChange={handleAuthorChange}>
+            <option value="">All Authors</option>
+            {authors.map(author => (
+              <option key={author} value={author}>
+                {author}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className={`sortingSection ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+          <label className='sortBy' htmlFor="sortCriteria">Sort by:</label>
+          <select id="sortCriteria" value={sortCriteria} onChange={handleSortChange}>
+            <option value="">None</option>
+            <option value="highestRating">Rating (highest to lowest)</option>
+            <option value="lowestRating">Rating (lowest to highest)</option>
+            <option value="latestUpdated">Updated (latest)</option>
+            <option value="newestReleaseDate">Release Date (newest)</option>
+            <option value="oldestReleaseDate">Release Date (oldest)</option>
+          </select>
+        </div>
       </div>
 
-      <BooksService selectedAuthor={selectedAuthor} />
+      {/* BooksService component with author and sort filter */}
+      <BooksService selectedAuthor={selectedAuthor} sortCriteria={sortCriteria} />
     </div>
   );
 };

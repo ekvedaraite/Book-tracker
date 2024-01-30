@@ -1,17 +1,45 @@
 .log-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px; /* Adjust the gap as needed */
-  margin: 0 auto; /* Center the log-cards */
+  grid-template-columns: repeat(auto-fill, minmax(23%, 1fr));
+  gap: 10px;
+  margin: 10px auto;
 }
 
 .log-card {
   border: 3px solid $light-green;
   border-radius: 5px;
   box-sizing: border-box;
-  width: calc(100% - 20px); /* Adjust the width and gap as needed */
-  margin: 10px; /* Adjust the margin as needed */
+  width: 100%;
+  min-width: 0;
+  height: 200px;
+  overflow-y: auto;
   position: relative;
+  word-wrap: break-word;
+  padding: 5px;
+
+  .logComment {
+    .comment-text {
+      font-family: $handwriting-font;
+      font-weight: 600;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $light-green;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
   @media screen and (max-width: 768px) {
     .trash-icon {
@@ -25,7 +53,7 @@
 
 @media screen and (max-width: 768px) {
   .log-cards {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     margin: 0 20px;
   }
 }
