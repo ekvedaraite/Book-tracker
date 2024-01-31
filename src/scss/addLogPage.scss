@@ -24,6 +24,16 @@
             }
         }
 
+        input[type="date"] {
+            &::-webkit-calendar-picker-indicator {
+              filter: invert(0);
+            }
+          }
+    
+          input[type="date"]:hover::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+          }
+
         input,
         textarea,
         select {
@@ -72,6 +82,13 @@
             border: 2px solid $light-green;
             color: $light-green;
         }
+
+        input[type="date"] {
+            &::-webkit-calendar-picker-indicator {
+              filter: none;
+              filter: brightness(0.7) invert(1);
+            }
+          }
     }
 }
 

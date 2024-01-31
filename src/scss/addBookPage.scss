@@ -32,6 +32,17 @@
         }
       }
 
+      input[type="date"] {
+        &::-webkit-calendar-picker-indicator {
+          filter: invert(0);
+        }
+      }
+
+      input[type="date"]:hover::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+      }
+      
+
       select.custom-select-class {
         height: auto;
         border: 2px solid $darker-green;
@@ -42,49 +53,13 @@
           cursor: pointer;
         }
       }
-
-      .genre-select {
-        position: relative;
-
-        .selected-values {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-
-          .selected-genre {
-            background: $cream;
-            padding: 4px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-
-            .remove-genre {
-              margin-left: 4px;
-              cursor: pointer;
-              background-color: $cream;
-              border: none;
-              padding: 2px 4px;
-              border-radius: 4px;
-            }
-          }
-        }
-
-        select {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          z-index: 1;
-        }
-      }
     }
   }
 
   &.dark-mode {
     form {
       label {
-      color: $light-green;
-
+        color: $light-green;
 
         input,
         textarea,
@@ -95,6 +70,13 @@
 
           &:hover {
             cursor: pointer;
+          }
+        }
+
+        input[type="date"] {
+          &::-webkit-calendar-picker-indicator {
+            filter: none;
+            filter: brightness(0.7) invert(1);
           }
         }
 
