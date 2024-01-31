@@ -1,27 +1,26 @@
-// App.jsx
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { DarkModeProvider, useDarkMode } from './components/DarkModeContext';
-import '../src/scss/styles.scss';
-import BooksPage from './pages/BooksPage';
-import AddBooksPage from './pages/AddBooksPage';
-import BookLogsPage from './pages/BookLogsPage';
-import AddLogPage from './pages/AddLogPage';
-import NotFoundPage from './pages/NotFoundPage';
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { DarkModeProvider, useDarkMode } from './components/DarkModeContext'
+import '../src/scss/styles.scss'
+import BooksPage from './pages/BooksPage'
+import AddBooksPage from './pages/AddBooksPage'
+import BookLogsPage from './pages/BookLogsPage'
+import AddLogPage from './pages/AddLogPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 const App = () => {
   return (
     <DarkModeProvider>
       <AppContent />
     </DarkModeProvider>
-  );
-};
+  )
+}
 
 const AppContent = () => {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { isDarkMode, toggleDarkMode } = useDarkMode()
 
   useEffect(() => {
-    document.body.classList.toggle('dark-mode', isDarkMode);
+    document.body.classList.toggle('dark-mode', isDarkMode)
   }, [isDarkMode]);
 
   return (
@@ -40,7 +39,7 @@ const AppContent = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
-  );
-};
+  )
+}
 
-export default App;
+export default App

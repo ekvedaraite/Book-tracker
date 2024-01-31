@@ -3,25 +3,29 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BooksService from '../components/BooksService';
 import { useDarkMode } from '../components/DarkModeContext';
+import Loading from '../components/Loading'; // Import the Loading component
 
 const BooksPage = () => {
-  const [authors, setAuthors] = useState([]); // State to store authors for filtering
-  const [selectedAuthor, setSelectedAuthor] = useState(''); // State to store selected author
-  const [sortCriteria, setSortCriteria] = useState(''); // State to store sorting criteria
+  const [loading, setLoading] = useState(true);
+  const [authors, setAuthors] = useState([]);
+  const [selectedAuthor, setSelectedAuthor] = useState('');
+  const [sortCriteria, setSortCriteria] = useState('');
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   useEffect(() => {
-    // Fetch books including author information
+    setLoading(true);
+
     fetch('http://localhost:4000/books')
       .then(response => response.json())
       .then(data => {
-        console.log('Books data:', data);
-
-        // Extract unique authors from the received books data
         const uniqueAuthors = Array.from(new Set(data.map(book => book.author)));
         setAuthors(uniqueAuthors);
+        setLoading(false);
       })
-      .catch(error => console.error('Error fetching books:', error));
+      .catch(error => {
+        console.error('Error fetching books:', error);
+        setLoading(false);
+      });
   }, []);
 
   const handleAuthorChange = (e) => {
@@ -31,6 +35,10 @@ const BooksPage = () => {
   const handleSortChange = (e) => {
     setSortCriteria(e.target.value);
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className={`booksPageDiv ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
@@ -42,10 +50,10 @@ const BooksPage = () => {
           </button>
         </Link>
       </div>
-      <div className='filterAndSortDiv'>
-        <div className={`filteringSection ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-          <label className='filterByAuthor' htmlFor="authorFilter">Filter by Author:</label>
-          <select id="authorFilter" value={selectedAuthor} onChange={handleAuthorChange}>
+      <div className={`filterAndSortDiv ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+        <div className="filteringSection">
+          <label className={`filterByAuthor ${isDarkMode ? 'dark-mode' : 'light-mode'}`} htmlFor="authorFilter">Filter by Author:</label>
+          <select id="authorFilter" value={selectedAuthor} onChange={handleAuthorChange} className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
             <option value="">All Authors</option>
             {authors.map(author => (
               <option key={author} value={author}>
@@ -54,9 +62,9 @@ const BooksPage = () => {
             ))}
           </select>
         </div>
-        <div className={`sortingSection ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-          <label className='sortBy' htmlFor="sortCriteria">Sort by:</label>
-          <select id="sortCriteria" value={sortCriteria} onChange={handleSortChange}>
+        <div className="sortingSection">
+          <label className={`sortBy ${isDarkMode ? 'dark-mode' : 'light-mode'}`} htmlFor="sortCriteria">Sort by:</label>
+          <select id="sortCriteria" value={sortCriteria} onChange={handleSortChange} className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
             <option value="">None</option>
             <option value="highestRating">Rating (highest to lowest)</option>
             <option value="lowestRating">Rating (lowest to highest)</option>

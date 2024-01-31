@@ -8,6 +8,10 @@
 .sortBy {
     color: $darker-green;
     padding: 5px;
+
+    &.dark-mode {
+        color: $light-green;
+    }
 }
 
 #authorFilter,
@@ -16,7 +20,13 @@
     border: 2px solid $darker-green;
     border-radius: 8px;
     color: $darker-green;
-    margin: 5px; /* Add margin to create space between items */
+    margin: 5px;
+
+    &.dark-mode {
+        background: $black;
+        border-color: $light-green;
+        color: $light-green;
+    }
 }
 
 @media screen and (max-width: 768px) {

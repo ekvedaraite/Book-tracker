@@ -6,29 +6,39 @@ import BookDetails from '../components/BookDetails';
 import LogCard from '../components/LogCard';
 import api from '../utils/api';
 import { useDarkMode } from '../components/DarkModeContext'; // Import the context hook
+import Loading from '../components/Loading'; // Import the Loading component
 
 const BookLogsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true); // Add loading state
   const [bookDetails, setBookDetails] = useState({});
   const [bookLogs, setBookLogs] = useState([]);
   const { isDarkMode } = useDarkMode(); // Use the context hook
 
   useEffect(() => {
-    // Fetch book details and log data from the API
-    api.getBookDetails(id)
-      .then((data) => {
-        console.log('Fetched book details:', data);
-        setBookDetails(data);
-      })
-      .catch(error => console.error('Error fetching book details:', error));
+    // Set loading to true when starting to fetch data
+    setLoading(true);
 
-    api.getBookLogs(id)
-      .then(data => {
-        console.log('Fetched book logs:', data);
-        setBookLogs(data);
+    // Fetch book details and log data from the API
+    Promise.all([
+      api.getBookDetails(id),
+      api.getBookLogs(id)
+    ])
+      .then(([bookDetailsData, bookLogsData]) => {
+        console.log('Fetched book details:', bookDetailsData);
+        console.log('Fetched book logs:', bookLogsData);
+
+        setBookDetails(bookDetailsData);
+        setBookLogs(bookLogsData);
+
+        // Set loading to false once both requests are complete
+        setLoading(false);
       })
-      .catch(error => console.error('Error fetching book logs:', error));
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setLoading(false); // Set loading to false in case of an error
+      });
   }, [id]);
 
   const handleDeleteLog = (logId) => {
@@ -58,6 +68,10 @@ const BookLogsPage = () => {
     // Navigate to the log creation page
     navigate(`/books/${id}/add-log`);
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className={`bookLogsPageDiv ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
