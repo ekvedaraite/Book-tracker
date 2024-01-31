@@ -1,34 +1,36 @@
-// AddBooksPage.jsx
-import React, { useState, useEffect } from 'react';
-import AddBookForm from '../components/AddBookForm';
-import Loading from '../components/Loading'; // Import the Loading component
+import React, { useState, useEffect } from 'react'
+import AddBookForm from '../components/AddBookForm'
+import { useDarkMode } from '../components/DarkModeContext'
+import Loading from '../components/Loading'
 
-const AddBooksPage = ({ isDarkMode }) => {
-  const [loading, setLoading] = useState(true);
-
-  // Simulating an asynchronous operation, replace it with your actual logic
+const AddBooksPage = () => {
+  // Dark mode state
+  const { isDarkMode } = useDarkMode()
+  // Loading state, initially set to true
+  const [loading, setLoading] = useState(true)
+  // Simulate a delay (2 seconds) to mimic fetching data
   useEffect(() => {
-    // Simulate an asynchronous operation (e.g., fetching data) for 2 seconds
     const fetchData = async () => {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      setLoading(false)
+    }
+    fetchData()
+  }, [])
 
   return (
     <div className={`addBooksPageDiv ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      {/* Header section with dynamic dark/light mode class */}
       <div className={`header ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
         <h2>Add a Book</h2>
       </div>
+      {/* Display loading component while loading, or the AddBookForm when loading is false */}
       {loading ? (
         <Loading />
       ) : (
         <AddBookForm />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default AddBooksPage;
+export default AddBooksPage

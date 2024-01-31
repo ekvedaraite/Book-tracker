@@ -39,7 +39,7 @@
   
       &.dark-mode {
         .slider {
-          background-color: black;
+          background-color: $black;
           border: 2px solid $light-green;
         }
       }

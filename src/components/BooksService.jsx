@@ -1,85 +1,93 @@
-// BooksService.jsx
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import BookCard from './BookCard';
-
+import React, { useEffect, useReducer } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import BookCard from './BookCard'
+// Initial state for the reducer
+const initialState = {
+  books: [],
+}
+// Reducer function to handle state updates
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'setBooks':
+      return { ...state, books: action.payload }
+    default:
+      return state
+  }
+}
 const BooksService = ({ selectedAuthor, sortCriteria }) => {
-  const [books, setBooks] = useState([]);
-
+  // State management using useReducer
+  const [state, dispatch] = useReducer(reducer, initialState)
+  // Effect to fetch and update books based on selectedAuthor and sortCriteria
   useEffect(() => {
-    // Fetch books and logs from the API
     Promise.all([
       fetch('http://localhost:4000/books').then((response) => response.json()),
       fetch('http://localhost:4000/logs').then((response) => response.json()),
     ])
       .then(([booksData, logsData]) => {
-        console.log('Fetched books:', booksData);
-        console.log('Fetched logs:', logsData);
-
-        // Associate logs with corresponding books
+        // Process books and logs data
         const booksWithLogs = booksData.map((book) => {
-          const bookLogs = logsData.filter((log) => log.bookId === book.id);
-          const averageRating = calculateAverageRating(bookLogs);
-          return { ...book, rating: averageRating };
-        });
-
-        // Filter books based on the selected author
+          const bookLogs = logsData.filter((log) => log.bookId === book.id)
+          const latestLog = getLatestLog(bookLogs)
+          const latestRating = latestLog ? latestLog.rating : 0
+          return { ...book, rating: latestRating }
+        })
+        // Apply author filter if selectedAuthor is provided
         let filteredBooks = selectedAuthor
           ? booksWithLogs.filter((book) => book.author === selectedAuthor)
-          : booksWithLogs;
-
-        // Sort books based on the selected sorting criteria
+          : booksWithLogs
+        // Apply sorting based on sortCriteria
         switch (sortCriteria) {
           case 'highestRating':
-            filteredBooks = filteredBooks.sort((a, b) => b.rating - a.rating);
-            break;
+            filteredBooks = filteredBooks.sort((a, b) => b.rating - a.rating)
+            break
           case 'lowestRating':
-            filteredBooks = filteredBooks.sort((a, b) => a.rating - b.rating);
-            break;
+            filteredBooks = filteredBooks.sort((a, b) => a.rating - b.rating)
+            break
           case 'latestUpdated':
-            filteredBooks = filteredBooks.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-            break;
+            filteredBooks = filteredBooks.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+            break
           case 'newestReleaseDate':
-            filteredBooks = filteredBooks.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-            break;
+            filteredBooks = filteredBooks.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate))
+            break
           case 'oldestReleaseDate':
-            filteredBooks = filteredBooks.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
-            break;
+            filteredBooks = filteredBooks.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate))
+            break
           default:
-            break;
+            break
         }
-
-        setBooks(filteredBooks);
+        // Update state with filtered and sorted books
+        dispatch({ type: 'setBooks', payload: filteredBooks })
       })
-      .catch((error) => console.error('Error fetching books and logs:', error));
-  }, [selectedAuthor, sortCriteria]);
-
+      .catch((error) => console.error('Error fetching books and logs:', error))
+  }, [selectedAuthor, sortCriteria])
+  // Handler for deleting a book
   const handleDeleteBook = (bookId) => {
-    // Perform book deletion logic using API function
     fetch(`http://localhost:4000/books/${bookId}`, {
       method: 'DELETE',
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Network response was not ok')
         }
-        // Remove the deleted book from the state
-        setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookId));
+        // Update state by removing the deleted book
+        const updatedBooks = state.books.filter((book) => book.id !== bookId)
+        dispatch({ type: 'setBooks', payload: updatedBooks })
       })
-      .catch((error) => console.error('Error deleting book:', error));
-  };
-
-  // Helper function to calculate the average rating from logs
-  const calculateAverageRating = (logs) => {
-    const totalRating = logs.reduce((sum, log) => sum + log.rating, 0);
-    const averageRating = logs.length > 0 ? totalRating / logs.length : 0;
-    return averageRating;
-  };
-
+      .catch((error) => console.error('Error deleting book:', error))
+  }
+  // Function to get the latest log for a book
+  const getLatestLog = (logs) => {
+    if (logs.length === 0) {
+      return null
+    }
+    return logs.reduce((latest, log) => (new Date(log.updatedAt) > new Date(latest.updatedAt) ? log : latest), logs[0])
+  }
   return (
     <div className="bookCardsContainer">
+      {/* AnimatePresence for smooth animations */}
       <AnimatePresence>
-        {books.map((book) => (
+        {state.books.map((book) => (
+          // Animate book cards individually
           <motion.div
             key={book.id}
             initial={{ opacity: 0 }}
@@ -87,13 +95,14 @@ const BooksService = ({ selectedAuthor, sortCriteria }) => {
             exit={{ opacity: 0 }}
           >
             <div className="singleBookCard">
+              {/* Render BookCard component for each book */}
               <BookCard book={book} onDeleteClick={handleDeleteBook} />
             </div>
           </motion.div>
         ))}
       </AnimatePresence>
     </div>
-  );
-};
+  )
+}
 
-export default BooksService;
+export default BooksService

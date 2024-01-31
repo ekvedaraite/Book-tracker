@@ -1,7 +1,7 @@
 .filterAndSortDiv {
     margin: 5px;
     display: flex;
-    flex-wrap: wrap; /* Add this to allow items to wrap onto the next line */
+    flex-wrap: wrap;
 }
 
 .filterByAuthor,
@@ -34,6 +34,6 @@
     .sortBy,
     #authorFilter,
     #sortCriteria {
-        width: 100%; /* Set the width to 100% for smaller screens to make them stack vertically */
+        width: 100%;
     }
 }

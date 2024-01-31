@@ -1,19 +1,13 @@
-// LogForm.jsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useDarkMode } from '../components/DarkModeContext';
-
+import { motion } from 'framer-motion'
+import { useDarkMode } from '../components/DarkModeContext'
+// Custom input for handling page numbers, allowing only numeric input
 const PageNumberInput = ({ value, onChange }) => {
+  // Handle input change and ensure it is a valid number
   const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-
-    // Check if the input is a valid number (including negative sign)
-    const isValidNumber = /^-?\d*$/.test(inputValue);
-
-    // If valid, update the state, otherwise, keep the previous value
-    onChange(isValidNumber ? inputValue : value);
-  };
-
+    const inputValue = e.target.value
+    const isValidNumber = /^-?\d*$/.test(inputValue)
+    onChange(isValidNumber ? inputValue : value)
+  }
   return (
     <div>
       <label>Page:</label>
@@ -25,9 +19,9 @@ const PageNumberInput = ({ value, onChange }) => {
         onChange={handleInputChange}
       />
     </div>
-  );
-};
-
+  )
+}
+// LogForm component for adding logs with motion animations
 const LogForm = ({
   date,
   setDate,
@@ -41,11 +35,11 @@ const LogForm = ({
   setFinished,
   handleAddLog,
 }) => {
-
-  const { isDarkMode } = useDarkMode();
-  
+  // Get dark mode state
+  const { isDarkMode } = useDarkMode()
   return (
     <div className={`AddLogPage ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      {/* Form with motion animations */}
       <motion.form
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -53,15 +47,19 @@ const LogForm = ({
         transition={{ duration: 0.5 }}
         onSubmit={handleAddLog}
       >
+        {/* Date input */}
         <div>
           <label>Date:</label>
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
         </div>
+        {/* Custom PageNumberInput component */}
         <PageNumberInput value={page} onChange={setPage} />
+        {/* Comment textarea */}
         <div>
           <label>Comment:</label>
           <textarea value={comment} onChange={(e) => setComment(e.target.value)} />
         </div>
+        {/* Rating input (shown only when finished reading) */}
         {finished && (
           <div>
             <label>Rating (out of 5):</label>
@@ -75,6 +73,7 @@ const LogForm = ({
             />
           </div>
         )}
+        {/* Checkbox for marking finished reading */}
         <div className='finishedDiv'>
           <label className='finishedLabel'>Finished Reading:</label>
           <input
@@ -84,10 +83,11 @@ const LogForm = ({
             onChange={(e) => setFinished(e.target.checked)}
           />
         </div>
+        {/* Submit button */}
         <button className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`} type="submit">Add Log</button>
       </motion.form>
     </div>
-  );
-};
+  )
+}
 
-export default LogForm;
+export default LogForm

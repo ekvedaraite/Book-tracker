@@ -1,17 +1,17 @@
-import React from 'react';
-import Select from 'react-select';
-import genreOptions from './GenreSelectOptions';
-import { useDarkMode } from '../components/DarkModeContext'; // Import the context hook
-
+import Select from 'react-select'
+import genreOptions from './GenreSelectOptions'
+import { useDarkMode } from '../components/DarkModeContext'
+// GenreSelect component for selecting genres using react-select
 const GenreSelect = ({ value = [], onChange }) => {
-  const { isDarkMode } = useDarkMode(); // Use the context hook
-
+  // Accessing dark mode status from the context
+  const { isDarkMode } = useDarkMode()
+  // Custom styles for react-select components
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
       backgroundColor: isDarkMode ? '#000' : '$cream',
       borderColor: isDarkMode ? '$light-green' : '$darker-green',
-      borderWidth: 2, // Set the border width explicitly
+      borderWidth: 2,
       color: isDarkMode ? '$light-green' : '$darker-green',
       '&:hover': {
         borderColor: isDarkMode ? '$light-green' : '$darker-green',
@@ -26,7 +26,7 @@ const GenreSelect = ({ value = [], onChange }) => {
       ...provided,
       color: isDarkMode ? '$light-green' : '$darker-green',
       '&:hover': {
-        border: `1px solid ${isDarkMode ? '$light-green' : '$darker-green'}`, // Set border color on hover
+        border: `1px solid ${isDarkMode ? '$light-green' : '$darker-green'}`,
         cursor: 'pointer',
       },
     }),
@@ -36,16 +36,16 @@ const GenreSelect = ({ value = [], onChange }) => {
       borderColor: isDarkMode ? '$light-green' : '$darker-green',
       borderRadius: '5px',
     }),
-  };
-
-  const selectedGenres = value.map((genre) => ({ label: genre, value: genre }));
-
+  }
+  // Convert selected genres to react-select format
+  const selectedGenres = value.map((genre) => ({ label: genre, value: genre }))
+  // Handle change in selected genres
   const handleSelectChange = (selectedOptions) => {
-    const selectedGenres = selectedOptions.map((option) => option.value);
-    onChange(selectedGenres);
-  };
-
+    const selectedGenres = selectedOptions.map((option) => option.value)
+    onChange(selectedGenres)
+  }
   return (
+    // Render the react-select component with custom styles
     <Select
       isMulti
       options={genreOptions.map((genre) => ({ label: genre, value: genre }))}
@@ -53,7 +53,7 @@ const GenreSelect = ({ value = [], onChange }) => {
       onChange={handleSelectChange}
       styles={customStyles}
     />
-  );
-};
+  )
+}
 
-export default GenreSelect;
+export default GenreSelect

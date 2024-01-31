@@ -50,6 +50,6 @@ const genreOptions = [
     'Essay',
     'Western fiction',
     'Satire',
-  ];
+  ]
 
-  export default genreOptions;
+  export default genreOptions
